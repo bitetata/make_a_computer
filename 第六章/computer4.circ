@@ -35,8 +35,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </options>
   <mappings>
     <tool lib="6" map="Button2" name="Menu Tool"/>
-    <tool lib="6" map="Button3" name="Menu Tool"/>
     <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
   </mappings>
   <toolbar>
     <tool lib="6" name="Poke Tool"/>
@@ -65,8 +65,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(100,70)" to="(100,210)"/>
     <wire from="(750,380)" to="(750,450)"/>
+    <wire from="(100,70)" to="(100,210)"/>
     <wire from="(460,180)" to="(460,570)"/>
     <wire from="(390,470)" to="(410,470)"/>
     <wire from="(710,250)" to="(750,250)"/>
@@ -75,8 +75,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(210,510)" to="(450,510)"/>
     <wire from="(250,450)" to="(270,450)"/>
     <wire from="(410,120)" to="(700,120)"/>
-    <wire from="(520,380)" to="(750,380)"/>
     <wire from="(210,330)" to="(410,330)"/>
+    <wire from="(520,380)" to="(750,380)"/>
     <wire from="(510,140)" to="(510,310)"/>
     <wire from="(210,560)" to="(210,570)"/>
     <wire from="(490,480)" to="(540,480)"/>
@@ -89,8 +89,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(260,470)" to="(260,540)"/>
     <wire from="(200,220)" to="(230,220)"/>
     <wire from="(750,190)" to="(750,250)"/>
-    <wire from="(250,450)" to="(250,480)"/>
     <wire from="(520,450)" to="(530,450)"/>
+    <wire from="(250,450)" to="(250,480)"/>
     <wire from="(410,70)" to="(410,80)"/>
     <wire from="(410,350)" to="(410,470)"/>
     <wire from="(860,70)" to="(860,80)"/>
@@ -103,8 +103,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(700,120)" to="(700,240)"/>
     <wire from="(550,280)" to="(550,320)"/>
     <wire from="(180,240)" to="(180,260)"/>
-    <wire from="(590,220)" to="(610,220)"/>
     <wire from="(210,570)" to="(460,570)"/>
+    <wire from="(590,220)" to="(610,220)"/>
     <wire from="(170,260)" to="(180,260)"/>
     <wire from="(140,350)" to="(150,350)"/>
     <wire from="(410,210)" to="(410,330)"/>
@@ -167,35 +167,50 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(750,320)" to="(750,380)"/>
     <wire from="(450,190)" to="(450,510)"/>
     <wire from="(550,190)" to="(550,220)"/>
-    <wire from="(440,200)" to="(440,490)"/>
     <wire from="(150,220)" to="(170,220)"/>
+    <wire from="(440,200)" to="(440,490)"/>
     <wire from="(230,540)" to="(260,540)"/>
-    <comp lib="4" loc="(590,220)" name="Register">
-      <a name="width" val="4"/>
-    </comp>
+    <comp lib="1" loc="(390,470)" name="Controlled Buffer"/>
+    <comp lib="4" loc="(200,220)" name="Register"/>
     <comp lib="0" loc="(150,360)" name="Ground">
       <a name="width" val="7"/>
     </comp>
-    <comp lib="1" loc="(390,470)" name="Controlled Buffer"/>
-    <comp lib="4" loc="(710,450)" name="RAM">
-      <a name="addrWidth" val="4"/>
-      <a name="dataWidth" val="4"/>
+    <comp lib="1" loc="(180,340)" name="AND Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
-    <comp lib="4" loc="(200,220)" name="Register"/>
-    <comp lib="4" loc="(230,480)" name="Register">
+    <comp lib="4" loc="(590,220)" name="Register">
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="4" loc="(830,80)" name="Register">
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="6" loc="(367,454)" name="Text"/>
+    <comp lib="3" loc="(150,220)" name="Adder"/>
+    <comp lib="6" loc="(162,307)" name="Text"/>
+    <comp lib="3" loc="(310,460)" name="Comparator">
+      <a name="width" val="4"/>
+      <a name="mode" val="unsigned"/>
+    </comp>
+    <comp lib="4" loc="(590,280)" name="Register">
       <a name="width" val="4"/>
     </comp>
     <comp lib="0" loc="(170,260)" name="Clock"/>
-    <comp lib="1" loc="(710,250)" name="Controlled Buffer">
-      <a name="width" val="4"/>
-      <a name="control" val="left"/>
-    </comp>
-    <comp lib="3" loc="(670,250)" name="Adder">
+    <comp lib="4" loc="(230,540)" name="Register">
       <a name="width" val="4"/>
     </comp>
-    <comp lib="6" loc="(140,237)" name="Text"/>
     <comp lib="4" loc="(560,450)" name="Register">
       <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(120,360)" name="Splitter">
+      <a name="incoming" val="8"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
     </comp>
     <comp lib="0" loc="(390,220)" name="Splitter">
       <a name="fanout" val="14"/>
@@ -224,49 +239,42 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit22" val="12"/>
       <a name="bit23" val="13"/>
     </comp>
+    <comp lib="1" loc="(710,250)" name="Controlled Buffer">
+      <a name="width" val="4"/>
+      <a name="control" val="left"/>
+    </comp>
     <comp lib="4" loc="(370,220)" name="ROM">
       <a name="dataWidth" val="24"/>
       <a name="contents">addr/data: 8 24
-1301 201302 1203 101204 c00005 8 1107 200a
-1009 200a
+1001 41002 1103 81104 1105 41106 1107 81108
+1209 4120a 100b 8100c 130d 4130e 110f 81110
+1411 41412 1213 81214 1015 41016 20017 28018
+1119 4111a 2001b 3001c 101d 4101e 401f 84020
+1021 41022 20023 28024 1125 41126 20027 30028
+1129 4112a 402b 8402c 122d 4122e 2002f 28030
+1331 41332 20033 30034 1235 41236 4037 84038
+1239 4123a 2003b 22003c 143d 4143e 2003f 120040
+c00041 43 44 14 1145 41146 20047 22048
+48
 </a>
     </comp>
-    <comp lib="3" loc="(150,220)" name="Adder"/>
-    <comp lib="4" loc="(590,280)" name="Register">
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="6" loc="(162,307)" name="Text"/>
-    <comp lib="4" loc="(230,540)" name="Register">
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="3" loc="(310,460)" name="Comparator">
-      <a name="width" val="4"/>
-      <a name="mode" val="unsigned"/>
-    </comp>
-    <comp lib="6" loc="(367,454)" name="Text"/>
-    <comp lib="4" loc="(830,80)" name="Register">
-      <a name="width" val="4"/>
-    </comp>
     <comp lib="1" loc="(350,470)" name="NOT Gate"/>
-    <comp lib="6" loc="(76,243)" name="Text"/>
-    <comp lib="1" loc="(180,340)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(420,301)" name="Text"/>
-    <comp lib="5" loc="(860,70)" name="Hex Digit Display"/>
-    <comp lib="0" loc="(120,360)" name="Splitter">
-      <a name="incoming" val="8"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-      <a name="bit4" val="1"/>
-      <a name="bit5" val="1"/>
-      <a name="bit6" val="1"/>
-      <a name="bit7" val="1"/>
+    <comp lib="4" loc="(710,450)" name="RAM">
+      <a name="addrWidth" val="4"/>
+      <a name="dataWidth" val="4"/>
     </comp>
     <comp lib="1" loc="(570,90)" name="Controlled Buffer">
       <a name="width" val="4"/>
     </comp>
+    <comp lib="3" loc="(670,250)" name="Adder">
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="5" loc="(860,70)" name="Hex Digit Display"/>
+    <comp lib="6" loc="(140,237)" name="Text"/>
+    <comp lib="4" loc="(230,480)" name="Register">
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="6" loc="(420,301)" name="Text"/>
+    <comp lib="6" loc="(76,243)" name="Text"/>
   </circuit>
 </project>
