@@ -261,15 +261,6 @@ def neweditor():
 	t1.append(editor(root))
 
 
-# 	mov [3], 444
-# haha: 
-# 	add [22], [43], [1]
-# 	jumpif loop, [43], [1]
-# 	jump haha 
-# loop: 
-# 	out [123]
-
-###main
 if __name__=="__main__":
 	root=None
 	t1.append(editor(root))
