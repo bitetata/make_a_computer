@@ -10,11 +10,11 @@ import math
 t1=[]
 root=None
 
-raBits = 8
-raMask = pow(2, raBits) - 1
-rdBits = 4
-rdMask = pow(2, rdBits) - 1
-otBits = raBits + rdBits
+raBits = 8						#ROM地址输入端的位数
+raMask = pow(2, raBits) - 1		#raBits转换成mask。比如raBits=8，那么raMask=二进制的11111111
+rdBits = 4						#ROM地址输入端的位数
+rdMask = pow(2, rdBits) - 1		#rdBits转换成mask。比如rdBits=4，那么rdMask=二进制的1111
+otBits = raBits + rdBits		#其它控制指令是从ROM输出端的第otBits位开始
 
 
 def genMoveCode(arg1, arg2, startAddr):
