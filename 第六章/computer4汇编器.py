@@ -165,6 +165,7 @@ def complieCode(text):
 			else:
 				tkMessageBox.showinfo('语法错误', "Line " + str(lineNumber) + ":\n" + line)
 				return
+	#把label修正成ROM地址
 	print(labelAddrMap)
 	for i in xrange(0,len(binCodeList)):
 		if not isinstance(binCodeList[i], int):
