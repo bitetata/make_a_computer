@@ -1,5 +1,7 @@
 # 动手制作一台计算机
 
+![image](https://github.com/bitetata/make_a_computer/blob/master/gif/computer1.gif)
+
 ### 本项目中的文件是《动手制作一台计算机》的演示文件。在动手制作计算机电路的环节，我们使用logisim仿真软件来制作计算机。主要的文件简介如下：
 * “logisim-win-2.7.1.exe”是logisim软件的windows版本，如果大家想下载其它平台版本，可以去它的官网下载
 * “computer1.circ”是第五章“制作一个最简单能够运转的计算机”的仿真电路文件
