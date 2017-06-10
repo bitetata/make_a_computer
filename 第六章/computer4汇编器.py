@@ -225,15 +225,9 @@ class editor:
 			self.t.title(oname)
 	
 	def savefile(self):
-		sname=asksaveasfilename(filetypes=[("Python file","*.txt")])
-		if sname:
-			ofp=open(sname,"w")
-			ofp.write(self.st.get(1.0,END))
-			ofp.flush()
-			ofp.close()
-			self.t.title(sname)
+		self.savefileData(self.st.get(1.0,END))
 
-	def saveHexfile(self, data):
+	def savefileData(self, data):
 		sname=asksaveasfilename(filetypes=[("Python file","*.txt")])
 		if sname:
 			ofp=open(sname,"wb")
@@ -255,7 +249,7 @@ class editor:
 					lineDataList.append("%X" % binCodeList[y])
 				dataList.append(' '.join(lineDataList))
 			data = '\n'.join(dataList)
-			self.saveHexfile(data)
+			self.savefileData(data)
 	
 def neweditor():
 	global root
