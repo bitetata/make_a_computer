@@ -60,43 +60,43 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(180,160)" to="(210,160)"/>
-    <wire from="(180,210)" to="(290,210)"/>
-    <wire from="(210,190)" to="(240,190)"/>
-    <wire from="(270,190)" to="(290,190)"/>
-    <wire from="(360,170)" to="(380,170)"/>
-    <wire from="(210,160)" to="(360,160)"/>
-    <wire from="(330,190)" to="(380,190)"/>
-    <wire from="(210,160)" to="(210,190)"/>
-    <wire from="(420,170)" to="(460,170)"/>
-    <wire from="(360,160)" to="(360,170)"/>
-    <comp lib="6" loc="(401,220)" name="Text">
-      <a name="text" val="上升沿触发器"/>
-    </comp>
-    <comp lib="6" loc="(170,238)" name="Text">
-      <a name="text" val="按钮"/>
-    </comp>
-    <comp lib="4" loc="(420,170)" name="D Flip-Flop">
+    <wire from="(130,150)" to="(160,150)"/>
+    <wire from="(160,180)" to="(190,180)"/>
+    <wire from="(130,200)" to="(240,200)"/>
+    <wire from="(310,160)" to="(330,160)"/>
+    <wire from="(160,150)" to="(310,150)"/>
+    <wire from="(280,180)" to="(330,180)"/>
+    <wire from="(160,150)" to="(160,180)"/>
+    <wire from="(370,160)" to="(410,160)"/>
+    <wire from="(310,150)" to="(310,160)"/>
+    <wire from="(220,180)" to="(240,180)"/>
+    <comp lib="0" loc="(130,150)" name="Clock"/>
+    <comp lib="1" loc="(220,180)" name="NOT Gate"/>
+    <comp lib="0" loc="(130,200)" name="Clock"/>
+    <comp lib="4" loc="(370,160)" name="D Flip-Flop">
       <a name="trigger" val="low"/>
     </comp>
-    <comp lib="0" loc="(180,160)" name="Clock"/>
-    <comp lib="1" loc="(270,190)" name="NOT Gate"/>
-    <comp lib="6" loc="(170,139)" name="Text">
+    <comp lib="6" loc="(120,129)" name="Text">
       <a name="text" val="按钮"/>
     </comp>
-    <comp lib="4" loc="(330,190)" name="D Flip-Flop">
-      <a name="trigger" val="low"/>
+    <comp lib="6" loc="(260,228)" name="Text">
+      <a name="text" val="电平沿触发器"/>
     </comp>
-    <comp lib="6" loc="(471,150)" name="Text">
+    <comp lib="6" loc="(421,140)" name="Text">
       <a name="text" val="发光二极管"/>
     </comp>
-    <comp lib="6" loc="(310,238)" name="Text">
-      <a name="text" val="上升沿触发器"/>
-    </comp>
-    <comp lib="6" loc="(252,180)" name="Text">
+    <comp lib="5" loc="(410,160)" name="LED"/>
+    <comp lib="6" loc="(202,170)" name="Text">
       <a name="text" val="非门"/>
     </comp>
-    <comp lib="0" loc="(180,210)" name="Clock"/>
-    <comp lib="5" loc="(460,170)" name="LED"/>
+    <comp lib="6" loc="(120,228)" name="Text">
+      <a name="text" val="按钮"/>
+    </comp>
+    <comp lib="6" loc="(351,210)" name="Text">
+      <a name="text" val="电平沿触发器"/>
+    </comp>
+    <comp lib="4" loc="(280,180)" name="D Flip-Flop">
+      <a name="trigger" val="low"/>
+    </comp>
   </circuit>
 </project>
