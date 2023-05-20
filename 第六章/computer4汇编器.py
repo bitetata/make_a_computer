@@ -1,14 +1,12 @@
 # _*_ coding: utf-8 _*_
-from Tkinter import *
-from ScrolledText import *
-import tkMessageBox
-from tkFileDialog import *
+import tkinter as tk
+import tkinter.scrolledtext as scrolledtext
+import tkinter.filedialog as filedialog
 import fileinput
 import re
 import math
+import sys
 
-t1=[]
-root=None
 
 raBits = 8						#ROM地址输入端的位数
 raMask = pow(2, raBits) - 1		#raBits转换成mask。比如raBits=8，那么raMask=二进制的11111111
@@ -163,101 +161,94 @@ def complieCode(text):
 			if oneCodes != None:
 				binCodeList.extend(oneCodes)
 			else:
-				tkMessageBox.showinfo('语法错误', "Line " + str(lineNumber) + ":\n" + line)
+				tk.messagebox.showinfo('语法错误', "Line " + str(lineNumber) + ":\n" + line)
 				return
 	#把label修正成ROM地址
 	print(labelAddrMap)
-	for i in xrange(0,len(binCodeList)):
+	for i in range(0,len(binCodeList)):
 		if not isinstance(binCodeList[i], int):
-			if labelAddrMap.has_key(binCodeList[i]):
+			if binCodeList[i] in labelAddrMap:
 				binCodeList[i] = labelAddrMap[binCodeList[i]] & raMask
 			else:
-				tkMessageBox.showinfo('语法错误', "Unknown label:\n" + binCodeList[i])
+				tk.messagebox.showinfo('语法错误', "Unknown label:\n" + binCodeList[i])
 				return
 	print(binCodeList)
 	return binCodeList
 
 
-def die():
-	sys.exit(0)
-
-
+#
+#以下是所有UI界面代码
+#
 class editor:
 	def __init__(self,rt):
 		if rt==None:
-			self.t=Tk()
+			self.t=tk.Tk()
 		else:
-			self.t=Toplevel(rt)
-		self.t.title("汇编器")#("汇编器 %d"%len(t1))
+			self.t=tk.Toplevel(rt)
+		self.t.title("汇编器")
 		self.t.geometry("550x600")  
-		self.bar=Menu(rt)
+		self.bar=tk.Menu(rt)
 		
-		self.filem=Menu(self.bar, tearoff=0)
+		self.filem=tk.Menu(self.bar, tearoff=0)
 		self.filem.add_command(label="打开",command=self.openfile)
-		#self.filem.add_command(label="新建",command=neweditor)
 		self.filem.add_command(label="保存",command=self.savefile)
-		#self.filem.add_command(label="关闭",command=self.close)
 		self.filem.add_separator()
-		self.filem.add_command(label="退出",command=die)
+		self.filem.add_command(label="退出",command=self.die)
 		
-		self.compilem=Menu(self.bar, tearoff=0)
+		self.compilem=tk.Menu(self.bar, tearoff=0)
 		self.compilem.add_command(label="编译生成Bin文件",command=self.compile)
 
 		self.bar.add_cascade(label="文件",menu=self.filem)
 		self.bar.add_cascade(label="编译",menu=self.compilem)
 		self.t.config(menu=self.bar)
 		
-		self.f=Frame(self.t,width=512)
-		self.f.pack(expand=1,fill=BOTH)
+		self.f=tk.Frame(self.t,width=512)
+		self.f.pack(expand=1,fill=tk.BOTH)
 		
-		self.st=ScrolledText(self.f,background="white", font=('courier', 20, 'normal'))
-		self.st.pack(side=LEFT,fill=BOTH,expand=1)
+		self.st=scrolledtext.ScrolledText(self.f,background="white", font=('courier', 20, 'normal'))
+		self.st.pack(side=tk.LEFT,fill=tk.BOTH,expand=1)
 	
 	def close(self):
 		self.t.destroy()
 	
+	def die(self):
+		sys.exit(0)
+	
 	def openfile(self):
-		p1=END
-		oname=askopenfilename(filetypes=[("Python file","*.txt")])
+		p1=tk.END
+		oname=filedialog.askopenfilename(filetypes=[("Python file","*.txt")])
 		if oname:
 			for line in fileinput.input(oname):
 				self.st.insert(p1,line)
 			self.t.title(oname)
 	
 	def savefile(self):
-		self.savefileData(self.st.get(1.0,END))
+		self.savefileData(self.st.get(1.0,tk.END))
 
 	def savefileData(self, data):
-		sname=asksaveasfilename(filetypes=[("Python file","*.txt")])
+		sname=filedialog.asksaveasfilename(filetypes=[("Python file","*.txt")])
 		if sname:
-			ofp=open(sname,"wb")
+			ofp=open(sname,"w")
 			ofp.write(data)
 			ofp.flush()
 			ofp.close()
 			self.t.title(sname)
 
 	def compile(self):
-		binCodeList = complieCode(self.st.get(1.0,END))
+		binCodeList = complieCode(self.st.get(1.0,tk.END))
 		if binCodeList != None:
 			dataList = ["v2.0 raw"]
-			lineCount = (len(binCodeList)+15) / 16
-			for x in xrange(0,lineCount):
+			lineCount = (len(binCodeList)+15) // 16
+			for x in range(0,lineCount):
 				lineDataList = []
-				for y in xrange(16*x, 16*(x+1)):
+				for y in range(16*x, 16*(x+1)):
 					if y >= len(binCodeList):
 						break
 					lineDataList.append("%X" % binCodeList[y])
 				dataList.append(' '.join(lineDataList))
 			data = '\n'.join(dataList)
 			self.savefileData(data)
-	
-def neweditor():
-	global root
-	t1.append(editor(root))
 
 
 if __name__=="__main__":
-	root=None
-	t1.append(editor(root))
-	root=t1[0].t
-	root.mainloop()
+	editor(None).t.mainloop()
